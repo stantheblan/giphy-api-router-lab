@@ -13,3 +13,7 @@ export function getTrending() {
   return ( res )
 }
 
+export function getSearch(search) {
+  const res = axios.get(search_url + search)
+  return ( res )
+}
