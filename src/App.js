@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import ErrorPage from './Pages/ErrorPage';
 import './App.css';
+import Home from './Pages/Home'
+import Trending from './Pages/Trending';
+import Search from './Pages/Search';
 
-function App() {
+
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <nav>
+          <Link to={'/random'}>Random</Link>
+          <Link to={'/trending'}>Trending</Link>
+          <Link to={'/search'}>Search</Link>
+        </nav>
+        <Routes>
+          <Route path='/'></Route>
+          <Route path='/random' element={<Home/>}></Route>
+          <Route path='/trending' element={<Trending/>}></Route>
+          <Route path='/search' element={<Search/>}></Route>
+          <Route path='/*' element={<ErrorPage/>}></Route>
+        </Routes>
+      </Router>
   );
 }
-
-export default App;
