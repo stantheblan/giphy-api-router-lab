@@ -8,3 +8,8 @@ export function getRandom() {
   return ( res )
 }
 
+export function getTrending() {
+  const res = axios.get(trending_url)
+  return ( res )
+}
+
